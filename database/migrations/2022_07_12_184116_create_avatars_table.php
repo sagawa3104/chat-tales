@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('avatars', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('user_id');
+            $table->string('name');
+            $table->string('description')->nullable();
+            $table->string('portrait')->nullable();
             $table->timestamps();
         });
     }

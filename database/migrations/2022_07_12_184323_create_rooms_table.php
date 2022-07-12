@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('host_avatar_id');
+            $table->unsignedInteger('guest_avatar_id');
+            $table->string('keyword')->nullable();
+            $table->string('description');
+            $table->string('display_id');
+            $table->boolean('is_filled');
             $table->timestamps();
         });
     }

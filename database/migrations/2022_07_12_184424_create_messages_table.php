@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('tab_id');
+            $table->unsignedInteger('avatar_id');
+            $table->string('content');
+            $table->boolean('is_visible');
             $table->timestamps();
         });
     }

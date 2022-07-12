@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class AvatarFactory extends Factory
 {
+
+    private static $sequence = 1;
+
     /**
      * Define the model's default state.
      *
@@ -17,7 +20,8 @@ class AvatarFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => 'アバター名'. sprintf('%04d', self::$sequence),
+            'description' => '仕様書'. sprintf('%04d', self::$sequence++),
         ];
     }
 }

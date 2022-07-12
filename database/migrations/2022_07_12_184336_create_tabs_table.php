@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('tabs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('room_id');
+            $table->string('name');
             $table->timestamps();
         });
     }

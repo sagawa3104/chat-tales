@@ -41,4 +41,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function avatars()
+    {
+        return $this->hasMany(Avatar::class);
+    }
+
+    public function hostRooms()
+    {
+        return $this->hasManyThrough(Room::class, Avatar::class, null,'host_avatar_id');
+    }
+
+    public function guestRooms()
+    {
+        return $this->hasManyThrough(Room::class, Avatar::class, null,'guest_avatar_id');
+    }
 }

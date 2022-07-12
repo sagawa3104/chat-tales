@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Avatar extends Model
 {
     use HasFactory;
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function Rooms()
+    {
+        return $this->hasMany(Room::class);
+    }
 }
