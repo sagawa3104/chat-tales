@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,4 +30,9 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::prefix('/home')->name('home.')->middleware(['auth', 'verified'])
+->group(function(){
+    Route::get('', [HomeController::class, 'home']);
+    Route::get('/avatars', [AvatarController::class, 'index'])->name('avatars.index');
+});
 require __DIR__.'/auth.php';

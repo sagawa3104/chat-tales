@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAvatarRequest;
 use App\Http\Requests\UpdateAvatarRequest;
 use App\Models\Avatar;
+use Inertia\Inertia;
+
 
 class AvatarController extends Controller
 {
@@ -16,6 +18,9 @@ class AvatarController extends Controller
     public function index()
     {
         //
+        return Inertia::render('Avatars', [
+            'avatars' => Avatar::all(),
+        ]);
     }
 
     /**
